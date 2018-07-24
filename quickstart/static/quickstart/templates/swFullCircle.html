@@ -1,0 +1,23 @@
+<div class="full-circle pie-chart">
+  <div class="full-circle__amount">
+    <p>{$ $ctrl.amount $}</p>
+  </div>
+  <div class="full-circle__unit">
+    <p>{$ $ctrl.unit $}</p>
+  </div>
+  <svg ng-if="$ctrl.show"
+    class="svg-full-circle svg-pie-chart"
+    ng-attr-height="{$ $ctrl.settings.diameter $}"
+    ng-attr-width="{$ $ctrl.settings.diameter $}">
+    <g class="chart"
+      ng-attr-transform="translate({$ $ctrl.settings.outerRadius $},{$ $ctrl.settings.outerRadius $})">
+      <circle
+        class="piechart__slice--remaining"
+        ng-attr-cx="0"
+        ng-attr-cy="0"
+        ng-attr-r="{$ $ctrl.settings.outerRadius $}"></circle>
+      <!--text dy="0.35em">{$ $ctrl.amount $}</text-->
+    </g>
+  </svg>
+
+</div>

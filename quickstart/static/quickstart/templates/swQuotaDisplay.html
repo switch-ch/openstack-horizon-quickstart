@@ -1,0 +1,49 @@
+<div class="swquota">
+    <kilo-pie-chart
+      ng-if="!vm.unlimited"
+      chart-data='vm.data'
+      chart-settings='vm.chartSettings'
+      class="swquota__piechart piechart--nolegend"></kilo-pie-chart>
+    <sw-full-circle
+      ng-if="vm.unlimited"
+      amount="vm.quota.displayValues.used"
+      unit="vm.unit"
+      chart-settings="vm.chartSettings"
+      class="swquota__piechart piechart--nolegend swquota__fullcirce"></sw-full-circle>
+    <div class="swquota__legend"><h4 class="swquota__title" ng-bind="vm.title"></h4>
+    <ul class="swquota__quota ul--nostyle">
+        <li class="swquota__quota__used" ng-if="vm.useBytesFilter">
+          <span ng-if="!vm.unlimited" class="qa-swquota-display-value">
+            <span translate>Used</span> {$ vm.quota.displayValues.used $} <span translate>of</span> {$  vm.quota.displayValues.max $}
+          </span>
+          <span ng-if="vm.unlimited" class="qa-swquota-display-value">
+            <span translate>Used</span> {$ vm.quota.displayValues.used $} {$ vm.unit $} (<span translate>unlimited</span>)
+          </span>
+        </li>
+        <li class="swquota__quota__toadd" ng-if="vm.useBytesFilter" >
+          <span ng-if="!vm.unlimited" class="qa-swquota-display-value">
+            <span translate>Allocate</span> {$ vm.quota.displayValues.toAdd $} <span translate>of</span> {$  vm.quota.displayValues.max $}
+          </span>
+          <span ng-if="vm.unlimited" class="qa-swquota-display-value">
+            <span translate>Allocate</span> {$ vm.quota.displayValues.toAdd $} (<span translate>unlimited</span>)
+          </span>
+        </li>
+        <li class="swquota__quota__used" ng-if="!vm.useBytesFilter">
+          <span ng-if="!vm.unlimited" class="qa-swquota-display-value">
+            <span translate>Used</span> {$ vm.quota.displayValues.used $}{$ vm.unit $} <span translate>of</span> {$ vm.quota.displayValues.max $} {$ vm.unit $}
+          </span>
+          <span ng-if="vm.unlimited" class="qa-swquota-display-value">
+            <span translate>Used</span> {$ vm.quota.displayValues.used $}{$ vm.unit $} (<span translate>unlimited</span>)
+          </span>
+        </li>
+        <li class="swquota__quota__toadd" ng-if="!vm.useBytesFilter">
+          <span ng-if="!vm.unlimited" class="qa-swquota-display-value">
+            <span translate>Allocate</span> {$ vm.quota.displayValues.toAdd $}{$ vm.unit $} <span translate>of</span> {$ vm.quota.displayValues.max $} {$ vm.unit $}
+          </span>
+          <span ng-if="vm.unlimited" class="qa-swquota-display-value">
+            <span translate>Allocate</span> {$ vm.quota.displayValues.toAdd $}{$ vm.unit $} (<span translate>unlimited</span>)
+          </span>
+        </li>
+    </ul>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-02 14:52+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: quickstart/dashboard.py:26
+#: quickstart/instances/templates/instances/index.html:10
+msgid "Quickstart"
+msgstr ""
+
+#: quickstart/instances/panel.py:29 quickstart/instances/tables.py:41
+msgid "Instances"
+msgstr ""
+
+#: quickstart/instances/tables.py:31
+msgid "Name"
+msgstr ""
+
+#: quickstart/instances/tables.py:33
+msgid "Status"
+msgstr ""
+
+#: quickstart/instances/tables.py:35
+msgid "Availability Zone"
+msgstr ""
+
+#: quickstart/instances/tables.py:37
+msgid "Image Name"
+msgstr ""
+
+#: quickstart/instances/tabs.py:31
+msgid "Instances Tab"
+msgstr ""
+
+#: quickstart/instances/tabs.py:52
+msgid "Unable to get instances"
+msgstr ""
+
+#: quickstart/instances/templates/instances/emails/instance_created_email.html:3
+#: quickstart/instances/templates/instances/emails/instance_created_email.txt:2
+#, python-format
+msgid "Dear %(name)s,"
+msgstr ""
+
+#: quickstart/instances/templates/instances/emails/instance_created_email.html:4
+#: quickstart/instances/templates/instances/emails/instance_created_email.txt:4
+#, python-format
+msgid "Your instance \"%(server_name)s\" was successfully created!"
+msgstr ""
+
+#: quickstart/instances/templates/instances/emails/instance_created_email.html:8
+#: quickstart/instances/templates/instances/emails/instance_created_email.txt:7
+msgid "Login with:"
+msgstr ""
+
+#: quickstart/instances/templates/instances/emails/instance_created_email.html:11
+#: quickstart/instances/templates/instances/emails/instance_created_email.txt:10
+msgid "IP address:"
+msgstr ""
+
+#: quickstart/instances/templates/instances/emails/instance_created_email.html:13
+#: quickstart/instances/templates/instances/emails/instance_created_email.txt:12
+msgid "Sincerely yours,"
+msgstr ""
+
+#: quickstart/instances/templates/instances/emails/instance_created_email.html:14
+#: quickstart/instances/templates/instances/emails/instance_created_email.txt:14
+msgid "Your SWITCHengines-Team"
+msgstr "Your SWITCHengines-Team"
+
+#: quickstart/rest/utils.py:159
+msgid "[SWITCHengines] New Instance created"
+msgstr "[SWITCHengines] New Instance created"
+
+#: quickstart/static/quickstart/templates/index.html:6
+msgid "Volumes"
+msgstr ""

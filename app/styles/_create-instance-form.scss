@@ -1,0 +1,176 @@
+/* image */
+
+.instance-title--required {
+    color: $medium-grey;
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.image {
+    padding: 0;
+}
+
+.image__category {
+    color: $blue;
+    height: 60px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 5px;
+
+    & > div {
+        height: 100%;
+        border-radius: 4px;
+        border: solid $blue 1px;
+    }
+
+    &:nth-child(odd) > div {
+        margin-right: 5px;
+    }
+
+    &:nth-child(even) > div {
+        margin-left: 5px;
+    }
+
+    &.image__category--active {
+
+        & > div {
+            background-color: $light-blue;
+        }
+
+        .image__category__version {
+            display: block;
+        }
+    }
+}
+
+.image__category--notquota {
+
+    color: $light-grey;
+
+    & > div {
+        border: solid $light-grey 1px;
+    }
+}
+
+.image__category--other {
+
+    &.image__category--active .image__category__version, .image__category__version, .image__category__version__item {
+        display: none;
+    }
+
+    .image__category__name {
+        width: 83.333%;
+    }
+}
+
+.image__category__version {
+    display: none;
+    border: 1px solid $blue;
+    border-radius: 6px;
+    z-index: 99;
+}
+
+.image__category__name p, .image__category__version__item {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.image__category__version__item--isfirst {
+    background-image: url($webroot + "static/quickstart/assets/downarrow.svg");
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+    background-position: 95% 50%;
+}
+
+.image__category__name {
+    p {
+        margin: 0 0 0 15px;
+    }
+}
+
+.image__category__icon, .image__category__name {
+    line-height: 60px;
+}
+
+.image__category__icon {
+    font-size: 40px;
+}
+
+.image__category__version {
+    line-height: 36px;
+    margin: 10px 0;
+    background-color: $light-blue;
+}
+
+.image__category__version__item {
+    display: none;
+    margin-right: -15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.image__category__version__item--is-unselectable {
+    color: $light-grey;
+    cursor: not-allowed;
+}
+
+.image__category__version--open {
+    .image__category__version__item {
+        display: block;
+    }
+    .image__category__version__item--isfirst {
+        background-image: url($webroot + "static/quickstart/assets/uparrow.svg");
+    }
+}
+
+.image__category__version__item--selected {
+    display: block;
+}
+
+/* flavors */
+
+.flavors__header, .flavors__selection li {
+    margin-left: 0;
+    margin-right: 0;
+    cursor: pointer;
+
+    &.flavor--disabled {
+        cursor: not-allowed;
+
+        .flavors__selection__element {
+            color: $light-grey;
+        }
+    }
+}
+
+.flavors__selection__element {
+    line-height: 24px;
+}
+
+.flavors__selection__element__name {
+    font-size: 24px;
+}
+
+/* Keypairs & security groups */
+
+.form-group .inline__warning:first-of-type {
+    margin-top: 10px;
+}
+
+.addkeypair__dialog__warnings {
+    padding-top: 15px;
+}
+
+.addSecurityGroup__dialog__checkitem {
+    label.inline-form__label {
+        font-family: Helvetica, sans-serif;
+        font-weight: normal;
+    }
+    input {
+        margin-right: 10px;
+    }
+}
+
+
+

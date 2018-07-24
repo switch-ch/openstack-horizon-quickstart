@@ -1,0 +1,9 @@
+<div class="info-box">
+    <label for="{$ vm.id $}" ng-bind="vm.title"></label>
+    <div class="col-xs-8 info-box__input">
+        <input class="form-control" id="{$ vm.id $}" type="text" ng-value="vm.value" />
+    </div>
+    <div class="col-xs-4">
+        <p class="info-box__copy inline-form__text-action" ng-click="vm.selectText()" ng-bind="vm.selectString"></p>
+    </div>
+</div>

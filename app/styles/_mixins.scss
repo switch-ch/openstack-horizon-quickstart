@@ -1,0 +1,28 @@
+@mixin text-grey() {
+  font-family: Helvetica, sans-serif;
+  font-size: 13px;
+  color: rgba(0,0,0,0.50);
+  line-height: 18px;
+}
+
+@mixin text() {
+  font-family: Helvetica, sans-serif;
+  font-size: 13px;
+  color: rgba(0,0,0,0.75);
+  line-height: 18px;
+}
+
+@mixin icon-font() {
+  font-family: 'switch-engines';
+  //speak: none;
+  //font-style: normal;
+  //font-weight: normal;
+  //font-variant: normal;
+  //text-transform: none;
+  //line-height: 1;
+  //
+  ///* Better Font Rendering =========== */
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
+}
+

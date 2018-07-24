@@ -1,0 +1,3 @@
+Christian Cueni <christian.cueni@iterativ.ch>
+Pawel Kowalski <pawel.kowalski@iterativ.ch>
+Dario Aebersold <dario.aebersold@iterativ.ch>

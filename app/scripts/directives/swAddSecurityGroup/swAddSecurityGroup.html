@@ -1,0 +1,32 @@
+<div class="swaddsecuritygroup inline-form">
+    <p class="inline-form__closed" ng-show="!vm.showForm && !vm.waitForRequest" ng-click="vm.showForm = true">
+        <span class="inline-form__text-action">{$ vm.strings.title $}</span></p>
+    <div class="icon-wait icon-wait--center" ng-show="vm.waitForRequest"></div>
+    <div uib-collapse="!vm.showForm" class="addSecurityGroup__dialog">
+        <div class="addkeypair__dialog__warnings">
+            <div ng-show="vm.showNameWarning" class="inline__warning icon-icon_bulb-2">
+                <p>{$ vm.strings.addAnotherName $}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="inline-form__label" for="name">{$ vm.strings.name $}</label>
+            <input class="form-control" id="name" name="name" type="text" ng-model="vm.group.name" ng-change="vm.inputChange()">
+        </div>
+        <div class="form-group">
+            <label class="inline-form__label" for="description">{$ vm.strings.description $}</label>
+            <input class="form-control" id="description" name="description" type="text" ng-model="vm.group.description" ng-change="vm.inputChange()">
+        </div>
+        <div class="form-group row">
+            <div class="col-md-2 addSecurityGroup__dialog__checkitem" ng-repeat="service in vm.services">
+                <label class="inline-form__label">
+                    <input type="checkbox" name="selectedServices[]" value="{$ service.id $}"  ng-checked="vm.selectedServices.indexOf(service) > -1"
+                           ng-click="vm.toggleSelection(service)"/>{$ service.name $}
+                </label></div>
+        </div>
+        <div class="error" ng-bind="vm.errorMsg" ng-class="{display: vm.errorMsg !== ''}"></div>
+        <div class="inline-form__actions">
+            <button id="addSecurityGroup__add" type="button" ng-class="{'btn-default--disabled': !vm.formValid}" class="btn btn-default" ng-click="vm.addSecurityGroup()" ng-bind="vm.strings.addGroup"></button>
+            <button type="button" class="btn btn-cancel btn--no-border" ng-click="vm.showForm = false" ng-bind="vm.strings.cancel"></button>
+        </div>
+    </div>
+</div>

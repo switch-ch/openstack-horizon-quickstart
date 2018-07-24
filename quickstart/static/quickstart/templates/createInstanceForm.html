@@ -1,0 +1,156 @@
+<div>
+    <div class="modal-header row">
+        <h2 class="modal-title col-xs-5">Create instance</h2>
+        <div class="instance-creation__quota col-xs-7">
+            <sw-quota-display class="col-xs-6" title="CPUs" metric="cores" multiplicator="1" is-bytes="false"></sw-quota-display>
+            <sw-quota-display class="col-xs-6" title="RAM" metric="ram" unit="GB" multiplicator="1048576" is-bytes="true"></sw-quota-display>
+        </div>
+    </div>
+    <form role="form" name="addInstanceForm" class="addinstanceform" novalidate>
+        <div class="modal-body">
+            <!--name-->
+            <div class="form-group row">
+                <label for="name">Name</label>
+                <input class="form-control" id="name" name="instanceName" type="text" ng-model="vm.instance.name" placeholder="The instance's name" required>
+            </div>
+            <!--images -->
+            <div class="form-group row">
+                <label for="image">Image</label>
+                <div ng-show="vm.imagesNotInQuota" class="inline__warning icon-icon_bulb-2">
+                    <p>Due to your quota some images cannot be selected!</p>
+                </div>
+                <ul class="image">
+                    <li class="col-xs-6 image__category {$ 'image__category--' + imageCategory.category $}" ng-repeat="imageCategory in vm.imageCategories" ng-click="vm.activateImageCategory(imageCategory)"
+                        ng-class="{'image__category--active': imageCategory.active, 'image__category--notquota': imageCategory.notAllowedImage}">
+                        <div>
+                            <div class="col-xs-1 image__category__icon icon-icon_software" ng-class="'icon-icon_' + imageCategory.category"></div>
+                            <div class="col-xs-5 image__category__name">
+                                <p ng-bind="imageCategory.name.charAt(0).toUpperCase() + imageCategory.name.slice(1)"></p>
+                            </div>
+                            <ul class="col-xs-5 image__category__version" ng-class="{'image__category__version--open': vm.showImageDropdown}">
+                                <li class="image__category__version__item" ng-repeat="image in imageCategory.images" ng-click="vm.selectImage(image.image, imageCategory)"
+                                    ng-class="{'image__category__version__item--selected': image.image.id === vm.instance.image.id,
+                                        'image__category__version__item--is-unselectable': !image.image.allowedQuota,
+                                        'image__category__version__item--isfirst': (imageCategory.images.length > 1) && ($index == 0)}" ng-bind="image.version">
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <input name="instanceImage" type="hidden" ng-model="vm.instance.image" required/>
+                <!--div ng-show="addInstanceForm.$submitted || addInstanceForm.instanceImage.$touched">
+                    <div ng-show="addInstanceForm.instanceImage.$error.required">Please select an image.</div>
+                </div-->
+            </div>
+            <!--flavors -->
+            <div class="form-group row">
+                <label for="flavor">Flavor</label>
+                <div ng-show="vm.flavorsNotInQuota" class="inline__warning icon-icon_bulb-2">
+                    <p>Due to your quota some flavors cannot be selected!</p>
+                </div>
+                <div class="row">
+                    <div class="flavors form-group">
+                        <div class="flavors__header tableheader row">
+                            <div class="col-xs-1"></div>
+                            <div class="col-xs-5">Name</div>
+                            <div class="col-xs-2">CPU</div>
+                            <div class="col-xs-2">RAM</div>
+                            <div class="col-xs-2">Disk</div>
+                        </div>
+                        <ul class="flavors__selection tableselection">
+                            <li ng-repeat="flavor in vm.flavors" ng-click="vm.selectFlavor(flavor)"
+                                ng-class="{'flavor--disabled': !flavor.allowed || !flavor.allowedForImage}">
+                                <div class="row flavors__selection__element tableselection__row" ng-class="{'tableselection__row--selected': flavor.id === vm.instance.flavor.id}">
+                                    <div class="col-xs-1"><input type="radio" name="flavor" ng-checked="flavor == vm.instance.flavor"></div>
+                                    <div class="col-xs-5 tableselection__row__col__emph">{$ flavor.name $}</div>
+                                    <div class="col-xs-2">{$ flavor.vcpus $}</div>
+                                    <div class="col-xs-2">{$ flavor.ram*1024*1024 | bytes:0 $}</div>
+                                    <div class="col-xs-2">{$ flavor.disk $} GB</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <input type="hidden" ng-model="vm.instance.flavor">
+                    </div>
+                </div>
+                <!--div ng-show="addInstanceForm.$submitted || addInstanceForm.instanceFlavor.$touched">
+                    <div ng-show="addInstanceForm.instanceFlavor.$error.required">Please select a flavor.</div>
+                </div-->
+            </div>
+
+            <!--keypairs -->
+            <div class="form-group keypairs row" ng-show="vm.instance.image.properties.requires_ssh !== 'false'">
+                <label for="keypair">KeyPairs</label>
+                <div class="inline__warning icon-icon_bulb-2" ng-show="vm.keypairs.length == 0">
+                    <p>Please add a key first</p>
+                </div>
+                <div ng-show="vm.maxKeyPairs" class="inline__warning icon-icon_bulb-2">
+                    <p>Due to your quota cannot add more keypairs.</p>
+                </div>
+                <!--div class="inline__warning icon-icon_bulb-2" ng-show="addInstanceForm.$submitted || addInstanceForm.instanceKeypair.$touched">
+                    <div ng-show="addInstanceForm.instanceKeypair.$error.requriesSsh">Please select a keypair</div>
+                </div-->
+                <div class="row">
+                    <ul class="keypairs__selection tableselection">
+                        <li ng-repeat="keypair in vm.keypairs">
+                            <div class="row keypairs__selection__element tableselection__row"
+                                 ng-class="{'tableselection__row--selected': keypair === vm.instance.keyPair}"
+                                 ng-click="vm.instance.keyPair = keypair">
+                                <div class="col-xs-1"><input type="radio" name="keypair" ng-checked="vm.instance.keyPair == keypair"></div>
+                                <div class="col-xs-10 tableselection__row__col__emph">{$ keypair.keypair.name $}</div>
+                                <div class="col-xs-1">
+                                    <a href><span ng-if="!keypair.delete" class="glyphicon glyphicon-trash" ng-click="vm.deleteKeypair(keypair)" ng-show="keypair.deletable" title="Delete Keypair"></span></a>
+                                    <span ng-if="keypair.delete" class="icon-wait"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <input type="hidden" ng-model="vm.instance.keyPair" sw-keypair-validation>
+                <sw-add-key ng-show="!vm.maxKeyPairs" key-created="vm.keyCreated(key)" show-form="vm.showAddKey"></sw-add-key>
+            </div>
+
+            <!--secgroups -->
+            <div class="form-group row securitygroups">
+                <label for="securitygroup">Security Group</label>
+                <div ng-show="vm.securityGroupRequired" class="inline__warning icon-icon_bulb-2">
+                    <p>Please add a security group first</p>
+                </div>
+                <div ng-show="vm.maxSecgroups" class="inline__warning icon-icon_bulb-2">
+                    <p>Due to your quota cannot add more securityGroups.</p>
+                </div>
+                <div ng-show="addInstanceForm.instanceSecurityGroups.$error.sshRequired" class="inline__warning icon-icon_bulb-2"><p>SSH required</p></div>
+                <div ng-show="addInstanceForm.instanceSecurityGroups.$error.rdpRequired" class="inline__warning icon-icon_bulb-2"><p>RDP required</p></div>
+                <div ng-show="vm.missingSecurityGroups.length > 0">
+                    <p>This instance requires the following rules:</p>
+                    <ul>
+                        <li ng-repeat="rule in vm.missingSecurityGroups">{$ rule $}</li>
+                    </ul>
+                </div>
+                <ul class="securitygroup__selection tableselection">
+                    <li ng-repeat="group in vm.securityGroups" ng-click="vm.handleSecurityGroup(group)">
+                        <div class="row securitygroup__selection__element tableselection__row">
+                            <div class="col-xs-1"><input type="checkbox" ng-checked="vm.securityGroupSelected(group)" /></div>
+                            <div class="col-xs-1 tableselection__row__col__emph">{$ group.name $}</div>
+                            <div class="col-xs-3">{$ group.description $}</div>
+                            <div class="col-xs-6">{$ group.ruleString $}</div>
+                            <div class="col-xs-1">
+                                <span ng-if="!group.delete" class="glyphicon glyphicon-trash" ng-click="vm.deleteSecurityGroup(group)" ng-show="group.deletable" title="Delete Securitygroup"></span></div>
+                                <span ng-if="group.delete" class="icon-wait"></span>
+                        </div>
+                    </li>
+                </ul>
+                <input name="instanceSecurityGroups" type="hidden" ng-model="vm.instance.securityGroups"
+                       sw-group-validation security-groups="vm.instance.securityGroups" rules-required="vm.neutron_support"/>
+                <sw-add-security-group ng-show="!vm.maxSecgroups" security-group-created="vm.securityGroupCreated(group)"></sw-add-security-group>
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <input type="button" class="btn btn-default addinstanceform__submit" ng-class="{'btn-default--disabled': !addInstanceForm.$valid}" ng-click="addInstanceForm.$submitted=true;vm.create(addInstanceForm)" value="Launch instance" />
+            <input type="button" class="btn btn-cancel" ng-click="vm.cancel()" value="Cancel" />
+        </div>
+    </form>
+
+</div>
+

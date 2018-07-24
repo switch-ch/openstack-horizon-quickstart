@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'quickstart/css/quickstart.css' %}" />
+ {% endblock %}
+
+{% block title %}{% trans "Quickstart" %}{% endblock %}
+
+{% block main %}
+    <!-- UI Router -->
+    <!-- Quickstart v1.3.6 -->
+    <div ui-view></div>
+
+{% endblock main %}
+
+{% block js %}
+    {{ block.super }}
+    <!-- only include below, remove other i18n script -->
+    <script type="text/javascript" src="{% url 'horizon:jsi18n' 'horizon+quickstart' %}"></script>
+{% endblock %}

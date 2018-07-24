@@ -1,0 +1,74 @@
+<div>
+    <div class="modal-header row">
+        <h2 class="modal-title col-xs-5" translate>Create instance</h2>
+        <div class="instance-creation__quota col-xs-7">
+            <sw-quota-display class="col-xs-6" title="{$ 'CPUs' | translate $}" metric="cores" is-bytes="false"></sw-quota-display>
+            <sw-quota-display class="col-xs-6" title="{$ 'RAM' | translate $}" metric="ram" unit="MB" is-bytes="true"></sw-quota-display>
+        </div>
+    </div>
+    <form role="form" name="addInstanceForm" class="addinstanceform" novalidate>
+        <div class="modal-body">
+            <!--name-->
+            <div class="form-group row">
+                <label for="name" translate>Name<span class="instance-title--required" translate>required</span></label>
+                <input class="form-control" id="name" name="instanceName" type="text" ng-model="vm.instance.name" placeholder="{$ 'The instance\'s name' | translate $}" required sw-autofocus />
+            </div>
+            <!--images-->
+            <div  class="form-group row">
+              <sw-images-field
+                  images-not-in-quota="vm.imagesNotInQuota"
+                  image-categories="vm.imageCategories"
+                  show-image-dropdown="vm.showImageDropdown"
+                  image-selected="vm.selectImage(image, imageCategory, toggleDropdown)"
+                  instance-image="vm.instance.image" />
+            </div>
+            <input name="instanceImage" type="hidden" ng-model="vm.instance.image" required/>
+            <!--flavors -->
+            <div class="form-group row">
+                <sw-flavors-field
+                  flavors="vm.flavors"
+                  select-flavor="vm.selectFlavor(flavor)"
+                  flavors-not-in-quota="vm.flavorsNotInQuota"
+                  flavors-not-for-image="vm.flavorsNotForImage"
+                  instance-flavor="vm.instance.flavor" />
+                <input type="hidden" ng-model="vm.instance.flavor">
+            </div>
+
+            <!--keypairs -->
+            <input type="hidden" ng-model="vm.instance.keyPair" sw-keypair-validation initial-image="vm.instance.image">
+            <div class="form-group row">
+                <sw-key-pair-field
+                        max-key-pairs="vm.maxKeyPairsReached"
+                        instance-keypair="vm.instance.keyPair.keypair"
+                        keypairs="vm.keypairs"
+                        delete-keypair="vm.deleteKeypair(keypair)"
+                        show-add-key="vm.showAddKey"
+                        key-created="vm.keyCreated(key)"
+                        key-selected="vm.keySelected(key)"
+                        class="form-group keypairs row"
+                        ng-show="vm.instance.image.properties.requires_ssh !== 'false'" />
+            </div>
+
+            <!--secgroups -->
+            <div class="form-group row">
+                <sw-security-groups-field
+                    security-group-required="vm.showSecurityGroupSelection"
+                    instance-security-groups="vm.instance.securityGroups"
+                    max-secgroups="vm.maxSecgroups"
+                    security-groups="vm.securityGroupsSelection"
+                    security-group-selected="vm.securityGroupSelected(group)" />
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <input
+              type="button"
+              class="btn btn-default addinstanceform__submit btn--no-border"
+              ng-class="{'btn-default--disabled': !addInstanceForm.$valid}"
+              ng-click="addInstanceForm.$submitted=true;vm.create(addInstanceForm)"
+              value="{$ 'Launch instance' | translate $}" />
+            <input type="button" class="btn btn-cancel btn--no-border" ng-click="vm.cancel()" value="{$ 'Cancel' | translate $}" />
+        </div>
+    </form>
+
+</div>

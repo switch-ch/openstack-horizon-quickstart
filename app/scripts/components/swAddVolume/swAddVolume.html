@@ -1,0 +1,48 @@
+<div class="swaddvolume">
+    <div class="swaddvolume--warnings">
+        <div ng-show="($ctrl.limits.volumes.max === $ctrl.limits.volumes.used) || ($ctrl.limits.volumeSpace.max === $ctrl.limits.volumeSpace.used)" class="inline__warning icon-icon_bulb-2">
+            <p translate>Cannot add additional volumes due to your quota.</p>
+        </div>
+        <div ng-show="$ctrl.errorMessage.length > 0" class="inline__warning icon-icon_bulb-2">
+            <p ng-bind="$ctrl.errorMessage"></p>
+        </div>
+    </div>
+    <ul class="swaddvolume__list tableselection" ng-show="$ctrl.volumes.length > 0">
+        <li ng-repeat="volume in $ctrl.volumes">
+            <div class="row swaddvolume__list__element tableselection__row ">
+                <div class="col-xs-3 tableselection__row__col__emph" ng-bind="volume.name"></div>
+                <div class="col-xs-2" ng-bind="volume.device"></div>
+                <div class="col-xs-1" ng-bind-template="{$ volume.size $} GB"></div>
+                <div class="col-xs-6" ng-bind="volume.description"></div>
+            </div>
+        </li>
+    </ul>
+    <div ng-show="!($ctrl.limits.volumes.max === $ctrl.limits.volumes.used) || !($ctrl.limits.volumeSpace.max === $ctrl.limits.volumeSpace.used)" class="swaddvolume__dialog inline-form">
+        <p class="inline-form__closed" ng-show="!$ctrl.showForm && !$ctrl.waitForRequest">
+            <span translate>Need more diskspace?</span> <span class="inline-form__text-action" ng-click="$ctrl.displayForm()" translate>Add disk</span>
+        </p>
+        <div class="icon-wait icon-wait--center" ng-show="$ctrl.waitForRequest"></div>
+        <form role="form" name="swAddVolumeForm" uib-collapse="!$ctrl.showForm" novalidate>
+            <div ng-show="swAddVolumeForm.$submitted && $ctrl.exceedsQuota" class="inline__warning icon-icon_bulb-2">
+                <p ng-bind="$ctrl.exceedsQuotaMessage"></p>
+            </div>
+            <div class="form-group">
+                <label for="volume_name" class="inline-form__label" translate>Name</label>
+                <input id="volume_name" type="text" class="form-control" ng-model="$ctrl.volume.name" requried />
+            </div>
+            <div class="form-group">
+                <label class="inline-form__label" for="volume_size" translate>Volume size (GB)</label>
+                <input id="volume_size" type="number" min="1" class="form-control" ng-model="$ctrl.volume.size" ng-click="$ctrl.checkSpace()" required />
+            </div>
+            <div class="form-group">
+                <label class="inline-form__label" for="volume_description" translate>Description</label>
+                <input id="volume_description" type="text" class="form-control" ng-model="$ctrl.volume.description" />
+            </div>
+            <p class="inline-form__help" translate>More on <a href="http://help.switch.ch/engines/faq/" target="_blank">mounting a volume</a></p>
+            <div class="inline-form__actions">
+                <button type="button" class="btn btn-default btn--no-border" ng-click="swAddVolumeForm.$submitted=true;$ctrl.addVolume(swAddVolumeForm)" ng-class="{'btn-default--disabled': !swAddVolumeForm.$valid}" translate>Create and attach Volume</button>
+                <button type="button" class="btn btn-cancel btn--no-border" ng-click="$ctrl.hideForm()" translate>Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

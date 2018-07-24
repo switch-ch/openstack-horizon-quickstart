@@ -1,0 +1,24 @@
+<div class="securitygroups-field qa-sec-group-field" ng-show="$ctrl.securityGroupRequired || $ctrl.maxSecgroups">
+    <div class="form-group row securitygroups">
+        <label for="securitygroup" class="qa-sec-group-title" translate>Firewall Rules</label>
+        <div ng-show="$ctrl.maxSecgroups" class="inline__warning icon-icon_bulb-2 qa-max-sec-group-warning">
+            <p translate>You have reached your Security Group Quota. Please
+              <a href="https://engines.switch.ch/horizon/project/access_and_security/">remove a Security Group first.</a>
+            </p>
+        </div>
+        <ul class="securitygroup__selection tableselection" ng-show="!$ctrl.maxSecgroups">
+            <li ng-repeat="group in $ctrl.securityGroups"
+            ng-click="$ctrl.groupSelected(group)"
+            ng-class="{'tableselection__row--selected': $ctrl.isSecurityGroupSelected(group)}">
+                <div class="row securitygroup__selection__element tableselection__row">
+                    <div class="col-xs-1"><input type="radio" ng-checked="$ctrl.isSecurityGroupSelected(group)" /></div>
+                    <div class="col-xs-2 tableselection__row__col__emph">{$ group.name $}</div>
+                    <div class="col-xs-3">{$ group.description $}</div>
+                    <div class="col-xs-5">{$ group.ruleString $}</div>
+                    <div class="col-xs-1">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

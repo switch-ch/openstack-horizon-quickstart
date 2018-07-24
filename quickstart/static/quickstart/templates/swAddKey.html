@@ -1,0 +1,34 @@
+<div class="swaddkey inline-form">
+    <p class="inline-form__closed" ng-show="!$ctrl.showForm && !$ctrl.waitForRequest" ng-click="$ctrl.showForm = true">
+        <span class="inline-form__text-action" translate>Add SSH keypair</span></p>
+    <div class="icon-wait icon-wait--center" ng-show="$ctrl.waitForRequest"></div>
+    <div uib-collapse="!$ctrl.showForm" class="addkeypair__dialog">
+        <div class="addkeypair__dialog__warnings">
+            <div ng-show="$ctrl.showNameWarning" class="inline__warning icon-icon_bulb-2">
+                <p translate>Please enter another name for this keypair.</p>
+            </div>
+            <div ng-show="$ctrl.showKeyWarning" class="inline__warning icon-icon_bulb-2">
+                <p translate>This public key already exists!</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="inline-form__label" for="keyname" translate>Name</label>
+            <input id="keyname" type="text" class="form-control" ng-model="$ctrl.keyName" ng-change="$ctrl.inputChange()" autocomplete="off"/>
+        </div>
+        <div class="form-group">
+            <label class="inline-form__label" for="key" translate>Public Key</label>
+            <textarea id="key" class="form-control" ng-model="$ctrl.key" ng-change="$ctrl.inputChange()" autocomplete="off"></textarea>
+        </div>
+        <p class="inline-form__help" translate>More on <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">generating SSH keys</a></p>
+        <div class="inline-form__actions">
+            <button
+              type="button"
+              ng-class="{'btn-default--disabled': !$ctrl.formValid}"
+              class="btn btn-default btn--no-border"
+              ng-click="$ctrl.addKey()" translate>Add key</button>
+            <button type="button"
+              class="btn btn-cancel btn--no-border"
+              ng-click="$ctrl.hideKeyForm()" translate>Cancel</button>
+        </div>
+    </div>
+</div>

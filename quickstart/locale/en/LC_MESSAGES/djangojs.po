@@ -1,0 +1,538 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-12 14:40+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: static/quickstart/js/quickstart.js:24637
+msgid "Unable to retrieve volumes."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:24664
+msgid "Unable to retrieve volume snapshots."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:24707
+msgid "Unable to retrieve image."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:24750
+msgid "Unable to retrieve images."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:24813
+msgid "Unable to retrieve namespaces."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:24864
+msgid "Unable to retrieve keypairs."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:24886
+msgid "Unable to import the keypair."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:24888
+msgid "Unable to create the keypair."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:24907
+msgid "Unable to retrieve availability zones."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:24945
+msgid "Unable to retrieve limits."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:24972
+msgid "Unable to create the server."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:24986
+#: static/quickstart/js/quickstart.js:26381
+msgid "Unable to retrieve server."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:25016
+msgid "Unable to retrieve extensions."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:25061
+msgid "Unable to retrieve flavors."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:25079
+msgid "Unable to retrieve flavor."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:25093
+msgid "Unable to retrieve flavor extra specs."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:25135
+msgid "Extension is not enabled: %(extension)s"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:25142
+msgid "Cannot get nova extension list."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:25230
+#: static/quickstart/js/quickstart.js:26497
+msgid "Unable to retrieve security groups."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:25436
+msgid "Submit"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:25437
+#: static/quickstart/js/quickstart.js:26806
+#: static/quickstart/js/quickstart.js:26946
+#: static/quickstart/js/quickstart.js:27125
+#: static/quickstart/js/quickstart.js:27234
+#: static/quickstart/js/quickstart.js:27784
+#: static/quickstart/js/quickstart.js:28041
+msgid "Cancel"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26400
+msgid "Unable to change powerstate."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26432
+msgid "Unable to attach new volume."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26447
+msgid "Unable to retrieve quota."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26472
+msgid "Unable to add security groups."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26513
+msgid "Unable to delete security group."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26530
+msgid "Unable to delete keypair."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26799
+msgid "Add SSH keypair"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26800
+msgid "Please enter another name for this keypair."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26801
+msgid "This public key already exists!"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26802
+#: static/quickstart/js/quickstart.js:26943
+#: static/quickstart/js/quickstart.js:27121
+#: static/quickstart/js/quickstart.js:27762
+msgid "Name"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26803
+msgid "Public Key"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26804
+msgid ""
+"More on <a href=\"https://help.github.com/articles/generating-ssh-keys/\" "
+"target=\"_blank\">generating SSH keys</a>."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26805
+msgid "Add key"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26941
+msgid "Create Firewall Rule-Groups"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26942
+msgid "Please enter another name for this group."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26944
+#: static/quickstart/js/quickstart.js:27123
+msgid "Description"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:26945
+msgid "Add Group"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27089
+msgid "An error occurred. Please try again."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27118
+msgid "Cannot add additional volumes due to your quota."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27119
+msgid "Need more diskspace?"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27120
+msgid "Add disk"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27122
+msgid "Volume size (GB)"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27124
+msgid "Create and attach Volume"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27126
+msgid ""
+"More on <a href=\"http://help.switch.ch/engines/faq/\" target=\"_blank"
+"\">mounting a volume</a>."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27131
+msgid "The entered size exceeds your quota!"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27233
+msgid "Confirm"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27312
+msgid "Instance created"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27313
+msgid "Access information"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27314
+msgid "This information has been emailed to"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27315
+msgid "IP address"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27316
+msgid "Access your instance"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27317
+msgid "Additional Diskspace"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27318
+msgid "Finish"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27319
+msgid "Need another machine?"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27320
+#: static/quickstart/js/quickstart.js:27760
+msgid "Create instance"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27321
+msgid "Need more information?"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27322
+msgid "Read the FAQ"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27323
+msgid "Volume Space"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27324
+#: static/quickstart/js/quickstart.js:28861
+msgid "Volumes"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27325
+msgid ""
+"Read more in the <a href=\"http://help.switch.ch/engines/faq/how-do-i-start-"
+"a-windows-vm/\" target=\"_blank\">FAQs</a>."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27636
+msgid "no rules"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27722
+msgid "This flavor is disabled due to your quota"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27724
+msgid "This flavor does not meet the selected images' requirements."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27761
+#: static/quickstart/js/quickstart.js:28860
+msgid "CPUs"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27763
+msgid "The instance's name"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27764
+msgid "Image"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27765
+msgid "Due to your quota some images cannot be selected!"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27766
+msgid "Flavor"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27767
+msgid "Due to your quota some flavors cannot be selected!"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27769
+msgid "CPU"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27770
+#: static/quickstart/js/quickstart.js:28857
+msgid "RAM"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27771
+msgid "Disk"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27772
+msgid "SSH Keypairs"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27773
+msgid "Please add a key first"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27774
+msgid "Due to your quota cannot add more keypairs."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27775
+msgid "Delete Keypair"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27776
+msgid "Firewall Rules"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27777
+msgid "Please add a firewall group first!"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27778
+msgid "You cannot add more firewall rules due to your quota"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27779
+msgid "SSH required"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27780
+msgid "RDP required"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27781
+msgid "This instance requires the following rules:"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27782
+msgid "Delete firewall group"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:27783
+#: static/quickstart/js/quickstart.js:28855
+msgid "Launch instance"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28037
+msgid "Creating instance"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28038
+#: static/quickstart/js/quickstart.js:28865
+msgid "Status"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28039
+msgid "An error occured:"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28040
+msgid "Try again"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28046
+msgid "Server created"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28386
+msgid "Used"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28387
+msgid "of"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28391
+msgid "Allocated"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28393
+msgid "Add"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28507
+msgid "Select"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28644
+msgid "Running"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28647
+msgid "Paused"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28651
+msgid "Shut down"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28653
+msgid "Suspended"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28657
+msgid "n/a"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28697
+msgid "Deleting"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28724
+msgid "Do you really want to delete this instance. This cannot be undone."
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28745
+msgid "Suspending"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28748
+msgid "Powering off"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28751
+msgid "Resuming"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28754
+msgid "Starting"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28757
+msgid "Changing state"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28793
+msgid "Loading"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28856
+msgid "Instances"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28858
+msgid "Disk space"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28859
+msgid "Floating IPs"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28862
+msgid "Instance name"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28863
+msgid "IPs"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28864
+msgid "SSH keypair"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28866
+msgid "Actions"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28867
+msgid "Power off instance"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28868
+msgid "Suspend instance"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28869
+msgid "Start instance"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28870
+msgid "Resume instance"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28871
+msgid "Delete instance"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28881
+msgid "You have no cores left!"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28882
+msgid "You have no floating IPs left!"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28883
+msgid "You have no RAM left!"
+msgstr ""
+
+#: static/quickstart/js/quickstart.js:28884
+msgid "You have no free instances left!"
+msgstr ""

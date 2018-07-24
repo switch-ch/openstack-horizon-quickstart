@@ -1,0 +1,255 @@
+/* general */
+
+.mainquota {
+    color: $text-grey;
+}
+
+.swquota__quota {
+    color: $grey
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* inline forms & tables */
+
+.instance-table {
+    color: $text-grey;
+
+    thead.tableheader > tr > th {
+        font-weight: bold;
+        background: none;
+        border-bottom: 1px solid black;
+    }
+
+    tbody > tr > td {
+        border-top: 0;
+    }
+}
+
+
+.inline-form, .tableheader, .info-boxes {
+    background: $light-grey;
+    color: $text-grey;
+}
+
+.tableheader, .inline-form__closed, .tableheader > tr {
+    line-height: 3em;
+    height: 3em;
+}
+
+.inline-form .form-group label.inline-form__label {
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.inline-form {
+    padding: 0 15px;
+    margin-bottom: 25px;
+
+    input {
+        position: relative;
+    }
+}
+
+.inline-form__actions {
+    margin-top: 15px;
+    padding-bottom: 15px;
+}
+
+.inline-form__text-action {
+    color: $blue;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.inline-form__help {
+    margin-top: 9px;
+}
+
+.inline__warning, .info {
+
+    line-height: 18px;
+
+    p {
+        padding-left: 25px;
+        @include text();
+    }
+}
+
+.tableselection {
+    padding: 0;
+    list-style: none;
+
+    border-top: 1px solid $medium-grey;
+
+    li {
+        border-bottom: $medium-grey solid 1px;
+    }
+}
+
+.tableselection__row {
+    margin: 5px 0;
+    line-height: 24px;
+    color: $grey;
+
+    .glyphicon {
+        line-height: 24px;
+    }
+}
+
+.tableselection__row__col__emph, .table__row__col__emph {
+    font-size: 16px;
+}
+
+.tableselection__row--selected {
+    border: 1px solid;
+    background: $light-blue;
+    border-radius: 3px;
+    color: $blue;
+}
+
+/* buttons */
+.btn {
+    color: #fff;
+    font-size: 16px;
+    padding: 2px 15px;
+}
+
+.btn-default {
+    background: $blue;
+
+    &:hover {
+        background-color: $dark-blue;
+        color: #fff;
+    }
+
+    &.btn-default--disabled {
+        background-color: $light-blue;
+        &:hover {
+            background-color: $light-blue;
+            color: #fff;
+        }
+    }
+}
+
+.btn-cancel {
+    background-color: $medium-grey;
+    &:hover {
+        background-color: $light-grey;
+    }
+}
+
+.btn--no-border {
+  border: 0;
+}
+
+/* piecharts */
+
+.piechart--nolegend {
+    .chart-tooltip, .pie-chart-title, .pie-chart-legend {
+        display: none;
+    }
+}
+
+.svg-pie-chart {
+    .slice {
+        fill: $blue;
+    }
+
+    .piechart__slice--remaining {
+        fill: $light-blue;
+    }
+
+    .piechart__slice--current {
+        fill: $dark-blue;
+    }
+
+    .piechart__slice--added {
+        fill: $dark-blue;
+    }
+}
+
+
+/* icon font */
+.icon-icon_software {
+
+    &.icon-icon_bsd:before {
+        content: "\e600";
+        @include icon-font();
+    }
+    &.icon-icon_centos:before {
+        content: "\e603";
+        @include icon-font();
+    }
+    &.icon-icon_debian:before {
+        content: "\e604";
+        @include icon-font();
+    }
+    &.icon-icon_fedora:before {
+        content: "\e605";
+        @include icon-font();
+    }
+    &.icon-icon_ubuntu:before {
+        content: "\e607";
+        @include icon-font();
+    }
+    &.icon-icon_windows:before {
+        content: "\e608";
+        @include icon-font();
+    }
+    &:before {
+        content: "\e606";
+        @include icon-font();
+    }
+}
+
+.icon-icon_bulb-1:before {
+    content: "\e601";
+    @include icon-font();
+}
+
+.icon-icon_bulb-2:before {
+    content: "\e602";
+    font-size: 18px;
+    color: $yellow;
+    float: left;
+    @include icon-font();
+}
+
+.icon-icon_bulb-2--mandatory:before {
+    content: "\e602";
+    font-size: 18px;
+    color: $red;
+    float: left;
+    @include icon-font();
+}
+
+span.icon-wait {
+    display: inline-block;
+}
+
+.icon-wait--center {
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.icon-wait {
+    background-image: url($webroot + "static/dashboard/img/spinner.gif");
+    height: 20px;
+    width: 20px;
+    background-repeat: no-repeat;
+}
+
+/* piechart */
+.swquota__quota__toadd {
+    display: none;
+}
+
+/* base list */
+.ul--nostyle {
+  list-style: none;
+}
