@@ -1,0 +1,20 @@
+.full-circle {
+  position: relative;
+
+  &__amount, &__unit {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__amount {
+    font-size: 24px;
+    top: 29%;
+    text-align: center;
+  }
+
+  &__unit {
+    top: 60%;
+  }
+}

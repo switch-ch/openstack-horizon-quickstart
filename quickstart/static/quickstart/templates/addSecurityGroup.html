@@ -1,0 +1,18 @@
+<div class="addSecurityGroup">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input class="form-control" id="name" name="name" type="text" ng-model="vm.group.name">
+    </div>
+    <div class="form-group">
+        <label for="description">description</label>
+        <input class="form-control" id="description" name="description" type="text" ng-model="vm.group.description">
+    </div>
+    <div class="form-group">
+        <div class="checkbox" ng-repeat="service in vm.services">
+            <label>
+            <input type="checkbox" name="selectedServices[]" value="{$ service.id $}"  ng-checked="vm.selectedServices.indexOf(service) > -1"
+                    ng-click="vm.toggleSelection(service)"/>{$ service.name $}
+        </label></div>
+    </div>
+    <button type="button" class="btn btn-default" ng-click="vm.addSecurityGroup()">Add</button>
+</div>

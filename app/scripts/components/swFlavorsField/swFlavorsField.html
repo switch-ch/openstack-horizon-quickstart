@@ -1,0 +1,36 @@
+<div class="flavors">
+    <label for="flavor" translate>Flavor</label>
+    <div ng-show="$ctrl.flavorsNotForImage" class="inline__warning icon-icon_bulb-2 qa-not-for-image-warning">
+        <p translate>Due to the image's requirements some flavors cannot be selected!</p>
+    </div>
+    <div ng-show="$ctrl.flavorsNotInQuota" class="inline__warning icon-icon_bulb-2 qa-not-for-quota-warning">
+        <p translate>Due to your quota some flavors cannot be selected!</p>
+    </div>
+    <div class="row">
+        <div class="flavors form-group">
+            <div class="flavors__header tableheader row">
+                <div class="col-xs-1" translate></div>
+                <div class="col-xs-5" translate>Name</div>
+                <div class="col-xs-2" translate>CPUs</div>
+                <div class="col-xs-2" translate>RAM</div>
+                <div class="col-xs-2" translate>Disk</div>
+            </div>
+            <ul class="flavors__selection tableselection">
+                <li ng-repeat="flavor in $ctrl.flavors" ng-click="$ctrl.flavorSelected(flavor)"
+                    ng-class="{'flavor--disabled': !flavor.allowed || !flavor.allowedForImage}"
+                    title="{$ $ctrl.flavorTitle(flavor) $}"
+                    class="qa-flavors__item">
+                    <div class="row flavors__selection__element tableselection__row" ng-class="{'tableselection__row--selected': $ctrl.isInstanceFlavor(flavor)}">
+                        <div class="col-xs-1">
+                          <input class="qa-flavor-checkbox" type="radio" name="flavor" ng-checked="$ctrl.isInstanceFlavor(flavor)">
+                        </div>
+                        <div class="col-xs-5 tableselection__row__col__emph">{$ flavor.name $}</div>
+                        <div class="col-xs-2">{$ flavor.vcpus $}</div>
+                        <div class="col-xs-2">{$ flavor.ram*1024*1024 | bytes:0 $}</div>
+                        <div class="col-xs-2"><span translate>Disk</span> <span>{$ flavor.disk $}</span> GB</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

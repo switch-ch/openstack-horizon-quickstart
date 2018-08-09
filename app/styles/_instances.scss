@@ -1,0 +1,117 @@
+.instance-table__deleterow {
+  width: 5%;
+  min-width: 50px;
+}
+
+.instance-table__deleterow, .instance-table__actionrow a:hover {
+  text-decoration: none;
+}
+
+.heading {
+  height: 30px;
+}
+
+.heading__action button {
+  margin-top: 20px
+}
+
+.mainquota > .row {
+  height: 120px;
+  margin: 1em 0;
+}
+
+.mainquota {
+  margin-bottom: 2em;
+}
+
+/* sw quota */
+.swquota__fullcirce {
+  display: none;
+}
+
+.quota-big {
+
+  .swquota__piechart {
+    float: left;
+  }
+
+  .swquota__fullcirce {
+    display: block;
+  }
+
+  .swquota__legend {
+    padding: 0 0 0 120px;
+  }
+
+  .swquota__quota {
+    padding-left: 0;
+  }
+
+  .swquota__title {
+    display: block;
+    border-bottom: 1px solid $light-grey;
+    margin-left: 0;
+    padding: 20px 0 10px 0;
+    font-size: 16px;
+    font-weight: normal;
+  }
+
+  &.floating-ips {
+    .svg-pie-chart .piechart__slice--added {
+      fill: $blue;
+    }
+
+    .swquota__quota__used:before {
+      content: "";
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      background-color: $dark-blue;
+      margin-right: 5px;
+    }
+
+    .swquota__quota__toadd {
+      display: block;
+    }
+
+    .swquota__quota__toadd:before {
+      content: "";
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      background-color: $blue;
+      margin-right: 5px;
+    }
+  }
+}
+
+.quota-warnings {
+
+  .inline-warning {
+    @include text();
+    padding-left: 26px;
+    line-height: 22px;
+    speak: normal;
+  }
+}
+
+.warning-list {
+
+  list-style: none;
+
+  &__item {
+    line-height: 22px;
+  }
+}
+
+tbody tr {
+  border-bottom: 1px solid $medium-grey;
+}
+
+.table__row__col__emph a:hover {
+  text-decoration: none;
+}
+
+.instance__ips {
+  padding-left: 0;
+}

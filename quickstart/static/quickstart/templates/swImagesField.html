@@ -1,0 +1,26 @@
+<div class="images-field">
+    <label for="image" translate>Image</label>
+    <div ng-show="$ctrl.imagesNotInQuota" class="inline__warning icon-icon_bulb-2">
+        <p translate>Due to your quota some images cannot be selected!</p>
+    </div>
+    <ul class="image ul--nostyle">
+        <li class="col-xs-6 image__category {$ 'image__category--' + imageCategory.category $}" ng-repeat="imageCategory in $ctrl.imageCategories" ng-click="$ctrl.activateImageCategory(imageCategory)"
+            ng-class="{'image__category--active': imageCategory.active, 'image__category--notquota': (imageCategory.notAllowedImage && imageCategory.images.length === 1)
+            || (imageCategory.images.length === 1 && imageCategory.images[0].image.allowedFlavors.length === 0)}">
+            <div>
+                <div class="col-xs-1 image__category__icon icon-icon_software" ng-class="'icon-icon_' + imageCategory.category"></div>
+                <div class="col-xs-5 image__category__name">
+                    <p ng-if="imageCategory.displayName === ''" ng-bind="imageCategory.name.charAt(0).toUpperCase() + imageCategory.name.slice(1)"></p>
+                    <p ng-if="imageCategory.displayName !== ''" ng-bind="imageCategory.displayName"></p>
+                </div>
+                <ul class="col-xs-5 image__category__version" ng-class="{'image__category__version--open': $ctrl.showImageDropdown}">
+                    <li class="image__category__version__item" ng-repeat="image in imageCategory.images" ng-click="$ctrl.selectImage(image.image, imageCategory, false)"
+                        ng-class="{'image__category__version__item--selected': image.image.id === $ctrl.instanceImage.id,
+                            'image__category__version__item--is-unselectable': !image.image.allowedQuota,
+                            'image__category__version__item--isfirst': (imageCategory.images.length > 1) && ($index == 0)}" ng-bind="image.version">
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>

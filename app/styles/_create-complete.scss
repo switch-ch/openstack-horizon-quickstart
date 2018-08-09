@@ -1,0 +1,35 @@
+.info-boxes {
+
+  padding: 25px 0 25px;
+
+  label {
+    display: block;
+  }
+}
+
+.info-box__input {
+  padding-left: 0;
+}
+
+.info-box__copy {
+  margin-top: 6px;
+}
+
+.createcomplete {
+
+  input[type=number] {
+    width: 70px;
+  }
+}
+
+.swaddvolume__dialog .inline__warning {
+  padding-top: 15px;
+}
+
+.info-box {
+  pre {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+  }
+}

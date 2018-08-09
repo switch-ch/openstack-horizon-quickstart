@@ -1,0 +1,69 @@
+<div class="heading row">
+    <div class="col-xs-12 heading__action">
+        <button ng-click="vm.createInstance()"
+                ng-class="{'btn-default--disabled': !vm.allowNew}"
+                class="btn btn-default btn-sm btn-launch btn--no-border"
+                role="button" id="instances__action_launch"
+                translate>Launch instance</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 mainquota">
+        <div class="row">
+            <sw-quota-display class="col-xs-4 quota-big" size="big" title="{$ 'Instances' | translate $}" metric="instances" is-bytes="false"></sw-quota-display>
+            <sw-quota-display class="col-xs-4 quota-big" size="big" title="{$ 'RAM' | translate $}" metric="ram" unit="MB" is-bytes="true"></sw-quota-display>
+            <sw-quota-display class="col-xs-4 quota-big" size="big" title="{$ 'Disk space' | translate $}" metric="volumeSpace" unit="GB" is-bytes="true"></sw-quota-display>
+        </div>
+        <div class="row">
+            <sw-quota-display ng-if="vm.limits.neutronFloatingIps" class="col-xs-4 quota-big floating-ips" change-display-values="true" to-add-text="allocate" size="big" title="{$ 'Floating IPs' | translate $}" metric="neutronFloatingIps" is-bytes="false"></sw-quota-display>
+            <sw-quota-display ng-if="!vm.limits.neutronFloatingIps" class="col-xs-4 quota-big floating-ips" change-display-values="true" to-add-text="allocate" size="big" title="{$ 'Floating IPs' | translate $}" metric="novaFloatingIps" is-bytes="false"></sw-quota-display>
+            <sw-quota-display class="col-xs-4 quota-big" size="big" title="{$ 'CPUs' | translate $}" metric="cores" is-bytes="false"></sw-quota-display>
+            <sw-quota-display class="col-xs-4 quota-big" size="big" title="{$ 'Volumes' | translate $}" metric="volumes"  is-bytes="false"></sw-quota-display>
+        </div>
+    </div>
+</div>
+
+<div class="quota-warnings row">
+    <ul class="col-xs-12 warning-list">
+        <li class="icon-icon_bulb-2 warning-list__item" ng-repeat="warning in vm.warnings"><p class="inline-warning" ng-bind="warning"></p></li>
+    </ul>
+</div>
+<div class="table_wrapper row" ng-show="vm.instances.length > 0">
+
+    <div class="col-xs-12">
+        <table id="instances" class="instance-table table">
+            <thead class="tableheader">
+            <tr>
+                <th translate>Instance name</th>
+                <th translate>IPs</th>
+                <th translate>SSH keypair</th>
+                <th translate>Status</th>
+                <th translate>Actions</th>
+                <th class="instance-table__deleterow"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="instance in vm.instances">
+                <td class="table__row__col__emph" ><a href="/horizon/project/instances/{$ instance.id $}/" ng-bind="::instance.name"></a></td>
+                <td>
+                    <ul class="instance__ips">
+                        <li ng-repeat="ip in vm.instanceIps(instance)" ng-bind="ip.addr"></li>
+                    </ul>
+                </td>
+                <td ng-bind="instance.key_name"></td>
+                <td ng-bind="instance.stateString"></td>
+                <td class="instance-table__actionrow">
+                    <span ng-if="instance['OS-EXT-STS:power_state'] === 1">
+                        <a href class="fa fa-stop" ng-click="vm.changeInstanceState(instance, 'stop')" title="{$ 'Power off instance' | translate $}"></a>
+                    </span>
+                    <a href ng-if="(instance['OS-EXT-STS:power_state'] === 4) && (instance.status == 'SHUTOFF')">
+                        <span class="fa fa-play" ng-click="vm.changeInstanceState(instance, 'start')" title="{$ 'Start instance' | translate $}"></span>
+                    </a>
+                </td>
+                <td class="instance-table__deleterow">
+                    <a href><span class="fa fa-trash" ng-click="vm.deleteInstance(instance)" title="{$ 'Delete instance' | translate $}"></span></a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

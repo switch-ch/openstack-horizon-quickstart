@@ -1,0 +1,110 @@
+/* modal-dialog */
+.createmodal {
+    .modal-header {
+        position: absolute;
+        top: 5px;
+        height: 70px;
+        right: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 100;
+    }
+
+    .modal-dialog {
+        position: relative;
+        height: 90%;
+        width: 100%;
+        min-height: 540px;
+        overflow-x: auto;
+        //max-width: 1200px;
+    }
+
+    .modal-content {
+        min-width: 960px;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 200px;
+        right: 200px;
+    }
+
+    //.createmodal__steps {
+    //    position: absolute;
+    //    top: 0;
+    //    left: 0;
+    //    right: 0;
+    //    bottom: 0;
+    //    overflow: hidden;
+    //}
+    //
+    .modal-body {
+        overflow-y: auto;
+        position: absolute;
+        width: 100%;
+        bottom: 40px;
+        top: 75px;
+    }
+    .modal-footer {
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        background: #fff;
+        width: 100%;
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    h2 {
+        font-family: Helvetica, sans-serif;
+        font-size: 23px;
+        color: rgba(0,0,0,0.75);
+    }
+
+    .form-group label, h3 {
+        font-family: Helvetica-Bold, Helvetica, sans-serif;
+        font-size: 18px;
+        color: rgba(0,0,0,0.75);
+        line-height: 22px;
+    }
+
+    /* top quota */
+    .swquota__piechart, .sqwquota__legend {
+        float: left;
+    }
+
+    .swquota__legend {
+        line-height: 26px;
+    }
+
+    .swquota__title {
+        margin: 0 5px;
+        display: inline;
+        float: left;
+        font-size: 13px;
+        line-height: 26px;
+    }
+
+    .swquota__quota li {
+        line-height: 28px;
+    }
+
+    ::-webkit-input-placeholder { /* WebKit browsers */
+        color:    $light-grey;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color:    $light-grey;
+        opacity:  1;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color:    $light-grey;
+        opacity:  1;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10+ */
+        color:    $light-grey;
+    }
+
+}
+

@@ -1,0 +1,37 @@
+.swcreateprogress__spinner {
+
+    width: 50px;
+    height: 50px;
+    margin: 50px auto 0 auto;
+
+    p {
+      display: none;
+    }
+
+    & .modal-body {
+      left: 0;
+      top: 50px;
+
+      & .loader-caption {
+        display: none;
+      }
+    }
+}
+
+.swcreateprogress__success__update {
+    width: 75%;
+    margin: 0 auto;
+
+    p {
+        text-align: center;
+        color: grey;
+        font-size: 18px;
+        margin-top: 20px;
+    }
+}
+
+.progress--hidetext {
+    p, h3 {
+        display: none;
+    }
+}

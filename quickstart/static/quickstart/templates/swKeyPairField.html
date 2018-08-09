@@ -1,0 +1,33 @@
+<div class="keypair-field">
+    <label for="keypair" translate>SSH Keypairs</label>
+    <div class="inline__warning icon-icon_bulb-2 icon-icon_bulb-2--mandatory" ng-show="$ctrl.keypairs.length == 0">
+        <p translate>Please add a key first</p>
+    </div>
+    <div ng-show="$ctrl.maxKeyPairs" class="inline__warning icon-icon_bulb-2">
+        <p translate>Due to your quota cannot add more keypairs.</p>
+    </div>
+    <!--div class="inline__warning icon-icon_bulb-2" ng-show="addInstanceForm.$submitted || addInstanceForm.instanceKeypair.$touched">
+        <div ng-show="addInstanceForm.instanceKeypair.$error.requriesSsh">Please select a keypair</div>
+    </div-->
+    <div class="row">
+        <ul class="keypairs__selection tableselection">
+            <li ng-repeat="keypairObj in $ctrl.keypairs">
+                <div class="row keypairs__selection__element tableselection__row"
+                     ng-class="{'tableselection__row--selected': $ctrl.isInstanceKeypair(keypairObj.keypair)}"
+                     ng-click="$ctrl.selectKeyPair(keypairObj)">
+                    <div class="col-xs-1"><input type="radio" name="keypair" ng-checked="$ctrl.isInstanceKeypair(keypairObj.keypair)"></div>
+                    <div class="col-xs-10 tableselection__row__col__emph">{$ keypairObj.keypair.name $}</div>
+                    <div class="col-xs-1">
+                        <a href><span ng-if="!keypair.delete" class="fa fa-trash" ng-click="$ctrl.deleteKeypair({keypair: keypairObj})" ng-show="keypairObj.deletable" title="{$ 'Delete Keypair' | translate $}"></span></a>
+                        <span ng-if="keypairObj.delete" class="icon-wait"></span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <sw-add-key ng-show="!$ctrl.maxKeyPairs"
+      keys="$ctrl.keypairs"
+      key-created="$ctrl.keySuccessfullyCreated(key)"
+      show-form="$ctrl.showAddKey"
+      ></sw-add-key>
+</div>

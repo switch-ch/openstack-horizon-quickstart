@@ -1,0 +1,15 @@
+{% load i18n %}{% autoescape off %}
+{% blocktrans with name=name %}Dear {{ name }},{% endblocktrans %}
+
+{% blocktrans with server_name=server_name %}Your instance "{{ server_name}}" was successfully created!{% endblocktrans %}
+
+{% if default_user %}
+{% trans 'Login with:' %}
+ssh {{ default_user }}@{{ ip }}
+{% else %}
+{% trans 'IP address:' %} {{ ip }}
+{% endif %}
+{% trans 'Sincerely yours,' %}
+
+{% trans 'Your SWITCHengines-Team' %}
+{% endautoescape %}

@@ -1,0 +1,50 @@
+<div class="createcomplete">
+    <div class="modal-header row">
+        <h3 class="modal-title col-xs-4" translate>Instance created</h3>
+        <div class="instance-creation__quota col-xs-8">
+            <sw-quota-display class="col-xs-7" title="{$ 'Volume Space' | translate $}" metric="volumeSpace" unit="GB" multiplicator="1" is-bytes="false"></sw-quota-display>
+            <sw-quota-display class="col-xs-5" title="{$ 'Volumes' | translate $}" metric="volumes"  multiplicator="1" is-bytes="false"></sw-quota-display>
+        </div>
+    </div>
+    <div class="modal-body">
+        <h3 translate>Access information</h3>
+        <div class="info icon-icon_bulb-2" ng-show="vm.userEmail">
+            <p><span translate>This information has been emailed to</span> {$ vm.userEmail $}</p>
+        </div>
+        <div class="info-boxes row">
+            <div ng-if="vm.osCategory.toLowerCase() !== 'windows'">
+                <div class="col-xs-6 info-box__ip">
+                    <div class="info-box">
+                        <h4 translate>IP address</h4>
+                        <p>{$ vm.ip $}</p>
+                    </div>
+                </div>
+                <div class="col-xs-6 info-box__login">
+                    <div class="info-box">
+                        <h4 translate>Access your instance</h4>
+                        <p><pre>ssh {$ vm.login $}</pre></p>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="vm.osCategory.toLowerCase() === 'windows'">
+                <div class="col-xs-6 info-box__ip">
+                    <p ng-bind-html="vm.strings.winHelp"></p>
+                </div>
+            </div>
+        </div>
+        <h3 translate>Additional Diskspace</h3>
+        <sw-add-volume instance-id="vm.instanceId"></sw-add-volume>
+    </div>
+    <div class="modal-footer row">
+        <div class="col-xs-4 col-xs-offset-2">
+            <p><span translate>Need another machine?</span> <a href ng-click="vm.newInstance()"><span translate>Create instance</span></a></p>
+        </div>
+        <div class="col-xs-4">
+            <p><span translate>Need more information?</span> <a href="http://help.switch.ch/engines/faq/" target="_blank"><span translate>Read the FAQ</span></a></p>
+        </div>
+        <div class="col-xs-2">
+            <button class="btn btn-default btn--no-border" ng-click="vm.close()" translate>Finish</button>
+        </div>
+    </div>
+
+</div>

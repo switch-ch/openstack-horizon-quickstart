@@ -1,0 +1,7 @@
+Fabric==1.10.1
+Jinja2==2.7.3
+
+# Do we really need those dependencies? They are implied by where we install our pacakge..
+#
+Django==1.6.11
+-e git://git.openstack.org/openstack/horizon.git@10c0b5232874bfc95ff42d08e0e262ad4ca71542#egg=horizon-origin_stable_juno

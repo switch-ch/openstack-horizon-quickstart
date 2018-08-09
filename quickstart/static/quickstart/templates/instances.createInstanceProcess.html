@@ -1,0 +1,15 @@
+<div ng-switch="vm.step" class="createmodal__steps">
+    <sw-create-instance-form limits="vm.limits"
+                          flavors="vm.flavors"
+                          images="vm.images"
+                          keypairs="vm.keypairs"
+                          security-groups="vm.securityGroups"
+                          create-instance="vm.createInstance(instance)"
+                          cancel="vm.close"
+                          ng-switch-when="form">
+    </sw-create-instance-form>
+    <sw-create-instance-progress cancel="vm.close" show-form="vm.showForm" ng-switch-when="waiting"></sw-create-instance-progress>
+    <sw-create-instance-complete close="vm.close" show-form="vm.showForm(clear)" ng-switch-when="complete"></sw-create-instance-complete>
+    <sw-create-instance-progress class="progress--hidetext" ng-switch-when="waitingNew"></sw-create-instance-progress>
+</div>
+

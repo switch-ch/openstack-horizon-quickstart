@@ -1,0 +1,14 @@
+<div class="createcomplete">
+    <div class="modal-header">
+        <h3 class="modal-title">Instance created</h3>
+    </div>
+    <div class="modal-body">
+        <p>Instance complete. Login with: {$ vm.defaultUser $}@{$ vm.ip $}</p>
+    </div>
+    <sw-add-volume instance-id="vm.instanceId"></sw-add-volume>
+    <div class="modal-footer">
+        <input type="button" class="btn btn-info" ng-click="vm.close()" value="Cancel">
+    </div>
+
+</div>
+

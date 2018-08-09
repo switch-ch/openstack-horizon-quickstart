@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'switch-engines';
+  src:url($webroot + 'static/quickstart/fonts/switch-engines.eot?-du2g9u');
+  src:url($webroot + 'static/quickstart/fonts/switch-engines.eot?#iefix-du2g9u') format('embedded-opentype'),
+  url($webroot + 'static/quickstart/fonts/switch-engines.ttf?-du2g9u') format('truetype'),
+  url($webroot + 'static/quickstart/fonts/switch-engines.woff?-du2g9u') format('woff'),
+  url($webroot + 'static/quickstart/fonts/switch-engines.svg?-du2g9u#switch-engines') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  //font-family: 'switch-engines';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url($webroot + 'static/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.eot');
+  src: url($webroot + 'static/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url($webroot + 'static/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'),
+    url($webroot + 'static/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'),
+    url($webroot + 'static/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+

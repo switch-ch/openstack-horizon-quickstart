@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+  {% include 'horizon/common/_sidebar.html' %}
+{% endblock %}
+
+{% block main %}
+    <script type="text/javascript" src="{% url 'django.views.i18n.javascript_catalog' %}"></script>
+    {% include "horizon/_messages.html" %}
+    {% block quickstart_main %}{% endblock %}
+{% endblock %}
+
