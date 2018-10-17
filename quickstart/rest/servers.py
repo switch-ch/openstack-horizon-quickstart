@@ -290,7 +290,7 @@ class Servers(generic.View):
             {
                 "instance": instance.to_dict(),
                 "email": user_email,
-                "network": PRIVATE_NETWORK
+                "network": PRIVATE_NETWORK if USE_PRIVATE_NETWORK else autonetwork_name(request)
             }
         )
 
