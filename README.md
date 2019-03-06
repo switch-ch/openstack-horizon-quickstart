@@ -4,6 +4,21 @@ This dashboard for Openstack's Horizon frontend aims to facilitate the creation
 of VMs for users. It takes the burden to know network and firewall configurations
 from the user and provides a simple interface to create a VM with a few clicks.
 
+![Screenshot](docs/quickstart.png)
+
+Features:
+
+* One single dialog for VM creation
+* Grouping of Images (by OS type)
+* Selection of relevant flavors
+* Creation / selection of SSH keypair if using Linux image
+* Automatic creation of SSH / RDP Security Group based on Linux/Window image
+* Apply correct security group to VM
+* Automatically create private network
+* Automatically assign floating IPv4 address
+* Help with creating / attaching additional volumes
+* Display login (SSH information)
+
 Quickstart has been tested with Horizon Pike.
 
 ## Quickstart Installation with pip
