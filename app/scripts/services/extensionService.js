@@ -57,8 +57,8 @@
                     });
             };
 
-            extended.nova.unshelveServer = function(instanceId, state) {
-                return apiService.post('api/extension/servers/' + instanceId + '/action', state)
+            extended.nova.actionOnServer = function(instanceId, action) {
+                return apiService.post('api/extension/servers/' + instanceId + '/action', action)
                     .error(function () {
                         horizon.alert('error', gettext('Unable to unshelve server.'));
                     });

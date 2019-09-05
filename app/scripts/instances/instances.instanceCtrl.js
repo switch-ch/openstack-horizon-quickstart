@@ -161,11 +161,21 @@
                     modalWaitSpinnerService.showModalSpinner(message);
 
                     oldState = instance['OS-EXT-STS:power_state'];
-                    apiExtensionService.nova.setPowerState(instance.id, {state: state}).then(function(data) {
 
-                    }, function(reason) {
-                        Raven.captureException(reason);
-                    });
+                    if (state === 'unshelve') {
+                        apiExtensionService.nova.actionOnServer(instance.id, {unshelve: null}).then(function(data) {
+
+                        }, function(reason) {
+                            Raven.captureException(reason);
+                        });
+                    } else {}
+
+                        apiExtensionService.nova.setPowerState(instance.id, {state: state}).then(function(data) {
+
+                        }, function(reason) {
+                            Raven.captureException(reason);
+                        });
+                    }
 
                     //poll for new state
                     interval = UpdateService.instanceStateChange(instance, oldState);
