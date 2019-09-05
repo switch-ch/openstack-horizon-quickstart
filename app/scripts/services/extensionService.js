@@ -57,6 +57,13 @@
                     });
             };
 
+            extended.nova.unshelveServer = function(instanceId, state) {
+                return apiService.post('api/extension/servers/' + instanceId + '/action', state)
+                    .error(function () {
+                        horizon.alert('error', gettext('Unable to unshelve server.'));
+                    });
+            };
+
             extended.nova.deleteServer = function(instanceId) {
                 return apiService.delete('api/extension/servers/' + instanceId);
             };

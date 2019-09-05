@@ -59,6 +59,9 @@
                     <a href ng-if="(instance['OS-EXT-STS:power_state'] === 4) && (instance.status == 'SHUTOFF')">
                         <span class="fa fa-play" ng-click="vm.changeInstanceState(instance, 'start')" title="{$ 'Start instance' | translate $}"></span>
                     </a>
+                    <a href ng-if="(instance['OS-EXT-STS:power_state'] === 4) && (instance.status == 'SHELVED_OFFLOADED')">
+                        <span class="fa fa-play" ng-click="vm.changeInstanceState(instance, 'start')" title="{$ 'Start instance' | translate $}"></span>
+                    </a>
                 </td>
                 <td class="instance-table__deleterow">
                     <a href><span class="fa fa-trash" ng-click="vm.deleteInstance(instance)" title="{$ 'Delete instance' | translate $}"></span></a></td>

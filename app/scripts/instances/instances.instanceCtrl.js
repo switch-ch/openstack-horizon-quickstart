@@ -151,6 +151,9 @@
                         case 'start':
                             message = gettext("Starting");
                             break;
+                        case 'unshelve':
+                            message = gettext("Unshelving");
+                            break;
                         default:
                             message = gettext("Changing state");
                     }
